@@ -1,0 +1,28 @@
+
+#----------------------------Датчики
+sensor:
+#--------------------------------------------------Комната
+#СО2 Комната
+ - platform: mqtt
+   state_topic: home/hall/meteo_hall/co2/state
+   name: "hall_co2"
+   unit_of_measurement: "ppm"
+#Температура в комнате
+ - platform: mqtt
+   state_topic: home/hall/meteo_hall/temperature/state
+   name: "hall_temperature"
+   unit_of_measurement: "°C"
+#Влажность в комнате
+ - platform: mqtt
+   state_topic: home/hall/meteo_hall/humidity/state
+   name: "hall_humidity"
+   unit_of_measurement: "%"
+
+#------------------------------------------------------------------------ Бинарные датчики
+binary_sensor:   
+ - platform: mqtt
+   name: "hall_meteo"
+   state_topic: home/hall/meteo_hall/online
+   payload_on: "ON"
+   payload_off: "OFF"
+   off_delay: 120 #Задержка после которой состояние датчика будет обновляться обратно Off   
